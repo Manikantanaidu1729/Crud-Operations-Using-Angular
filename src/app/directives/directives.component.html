@@ -1,0 +1,62 @@
+<h1 *ngIf="!data" [style.color]="'red'">Loading....</h1> <!-- if the condition is false then the h1 element is removed from the dom -->
+
+<ng-template #information>
+    <p>
+        {{byte}}
+    </p>
+</ng-template>
+
+<ng-template #load>
+    <p>
+        loading....
+    </p>
+</ng-template>
+
+<h1 *ngIf="!byte else information" [style.color]="'red'">Loading....</h1>
+
+<h1 *ngIf="!byte then load else information"></h1>
+
+
+<p *ngFor="let ele of nums">Paragraph{{ele}}</p>
+
+<p *ngFor="let ele of nums; index as i;">index--->{{i}}, Paragraph{{ele}}</p>
+
+<p *ngFor="let ele of nums; index as i; first as f">first--->{{f}}, index--->{{i}}, Paragraph{{ele}}</p>
+
+<p *ngFor="let ele of nums; index as i; last as l">last--->{{l}}, index--->{{i+1}}, Paragraph{{ele}}</p>
+
+<p *ngFor="let ele of nums index as i even as e odd as o">even--->{{e}}, odd--->{{o}}, index--->{{i}}, Paragraph{{ele}}</p>
+
+
+
+<input type="text" [(ngModel)]="operator" placeholder="Please enter an operator">
+<div [ngSwitch]="operator">
+    <div *ngSwitchCase="'+'">
+        Addition--->{{num1+num2}}
+    </div>
+    <p *ngSwitchCase="'-'">
+        Subtraction--->{{num1-num2}}
+    </p>
+    <div *ngSwitchCase="'/'">
+        
+        Division--->{{num1/num2}}
+    </div>
+    <div *ngSwitchCase="'*'">
+        Multiplication--->{{num1*num2}}
+    </div>
+    <div *ngSwitchDefault>
+       Invalid Match
+    </div>
+</div>
+
+
+<p [ngStyle]="{color:'red',fontSize:'30px',fontStyle:'italic'}">Hai</p>
+<p [ngStyle]="{color:properties.color,fontSize:properties.Size}">Hello</p>
+<p [ngStyle]="{color:hasError?properties.color:'green'}">Good</p>
+
+<!-- ngstyle is also same as style binding -->
+
+<!-- [ngClass] is same as class binding and also same syntax. only difference is in class binding we use [class]  but here [ngClass].
+     Both are used to add and remove classes -->
+
+<!-- Both ngClass and ngStyle uses binding like style and class binding -->

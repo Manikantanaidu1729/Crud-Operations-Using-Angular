@@ -1,0 +1,16 @@
+<nav>
+    <a [routerLink]="['dashboard']" >Dashboard</a> <!-- [routerLink]=["path",routeparameters] -->
+    <a routerLink="manageCrises">Manage Crises</a>
+    <a routerLink="manageheroes">Manage Heroes</a>
+    <a routerLink="logout">Logout</a>
+    <button (click)="navigate()">Hello</button>
+</nav><br>
+
+<h3>Department List</h3>
+<ul>
+    <li *ngFor="let routeParam of routeParams">
+        <button (click)="onSelect(routeParam)" class="btn btn-success" style="width: 120px;" routerLinkActive="active" target="_blank">{{routeParam.id}}-{{routeParam.name}}</button><br><br>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

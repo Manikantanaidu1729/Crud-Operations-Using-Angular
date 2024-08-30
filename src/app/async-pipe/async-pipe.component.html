@@ -1,0 +1,27 @@
+<!-- {{users | async | json}} -->
+
+<div class="table table-bordered">
+    <thead>
+        <th>id</th>
+        <th>username</th>
+        <th>email</th>
+    </thead>
+    <tr *ngFor="let element of users | async">
+        <td>{{element.id}}</td>
+        <td>{{element.username}}</td>
+        <td>{{element.email}}</td>
+    </tr>
+</div>
+
+<div class="table table-bordered">
+    <thead>
+        <th>id</th>
+        <th>username</th>
+        <th>email</th>
+    </thead>
+    <tr *ngFor="let element of users2">
+        <td>{{element.id}}</td>
+        <td>{{element.username}}</td>
+        <td>{{element.email}}</td>
+    </tr>
+</div>

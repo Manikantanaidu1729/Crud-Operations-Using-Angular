@@ -1,0 +1,92 @@
+<!-- Normal Reactive From Creation -->
+
+<form action="" [formGroup]="login">
+
+    UserName: <input type="text" class="form-control w-50 m-2" formControlName="uname">
+
+    <div *ngIf="login.get('uname')?.touched && login.get('uname')?.hasError('required')" class="error-msg">UserName is required</div> <!-- It is used in reactive forms-->
+    <div *ngIf="login.controls.uname.errors?.['minlength']" class="error-msg">UserName must be greater than 6 characters</div>
+
+    Email: <input type="email" class="form-control w-50 m-2" formControlName="email">
+    
+    <div *ngIf="login.get('email')?.touched && login.get('email')?.hasError('required')" class="error-msg">Email is required</div>
+    <div *ngIf="login.get('email')?.hasError('email')" class="error-msg">Please check the email format</div>
+
+    <button class="btn btn-primary m-2" (click)="send()">send</button>
+    
+</form><br><br>
+
+
+<!-- Form Array -->
+
+<form action="" [formGroup]="registrationForm">
+
+    <div formArrayName="mobileNumbers">
+        <div *ngFor="let m of registrationForm.controls.mobileNumbers.controls; index as i">
+            Mobile Number {{i+1}} : <input type="text" class="form-control w-50 m-2" formControlName="{{i}}" style="display: inline;"> <span (click)="delete(i)">❌</span>   
+        </div>
+    </div>
+
+    <button class="btn btn-primary m-2" (click)="show()">show</button>
+
+    <button class="btn btn-primary m-2" (click)="add()">Add</button>
+
+</form><br><br>
+
+
+<!-- Form Builder -->
+
+<form [formGroup]="simpleForm">
+
+    Name: <input type="text" class="form-control w-50 m-2" formControlName="uname">
+
+    Email: <input type="email" class="form-control w-50 m-2" formControlName="email">
+
+    <div formArrayName="mobiles">
+
+        <!-- <div *ngFor="let m of simpleForm.controls.mobiles.controls; index as i">
+            Mobile Number {{i+1}} : <input type="tel" class="form-control w-50 m-2" formControlName="{{i}}" style="display: inline;">   
+        </div> -->
+
+        <div *ngFor="let m of simpleForm.controls.mobiles.value; index as i">
+            Mobile Number {{i+1}} : <input type="tel" class="form-control w-50 m-2" formControlName="{{i}}" style="display: inline;">   
+        </div>
+
+    </div>
+
+    <div formGroupName="personal" for>
+        <div>Gender: <br>
+            Male <input type="radio" formControlName="gender" value="male">
+            Female <input type="radio" formControlName="gender" value="female">
+        </div>
+    </div>
+
+    <button class="btn btn-primary m-2" (click)="give()">give</button>
+
+</form><br><br>
+
+
+<!-- Custom Validations -->
+
+<form action="" [formGroup]="customForm">
+
+    Password: <input type="password" class="form-control w-50 m-2" formControlName="password">
+    <div *ngIf="customForm.controls.password.dirty && customForm.controls.password.errors?.['noUpper']" class="error-msg">
+       Password should contain atleast one upperCase character
+    </div>
+
+</form><br><br>
+
+
+<!-- Async Validations -->
+
+<form action="" [formGroup]="form">
+
+    userName: <input type="username" class="form-control w-50 m-2" formControlName="username">
+    <div *ngIf="form.controls.username.dirty && form.controls.username.errors?.['duplicate']" class="error-msg">
+       UserName already exits
+    </div>
+
+    <button class="btn btn-primary m-2" (click)="get()">get</button>
+
+</form>

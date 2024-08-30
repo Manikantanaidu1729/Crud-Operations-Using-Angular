@@ -1,0 +1,19 @@
+input.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+input.ng-dirty.ng-invalid{
+    border: 2px solid red;
+}
+
+input.ng-touched.ng-valid{
+    border: 2px solid green;
+}
+
+input.ng-dirty.ng-valid{
+    border: 2px solid green;
+}
+
+.error-msg{
+    color: red;
+}

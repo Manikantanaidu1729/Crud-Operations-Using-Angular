@@ -1,0 +1,22 @@
+<h1>{{greeting}} Manikanta</h1>
+{{userService.getUsers()}}<br>
+
+
+<img src={{src}} alt="LOGO" height="200px" width="200px"><br>
+<img [src]=src alt="LOGO" height="200px" width="200px"><br>
+<button [disabled]=isDisabled>Disabled</button>
+<button [disabled]=isEnabled>Enabled</button><br><br>
+
+<h1 [style]="{'color':cvar}">Hello</h1>
+<h1 [style.color]=cvar>Green</h1>
+<h1 [style.color]="cvar">Green</h1>
+<h1 [style.color]='hasError?"red":"green"'>Red</h1>
+
+
+<label for="">User Name</label>
+<input type="text" [(ngModel)]=name placeholder="Enter Your Name"><br><br>
+<label for="">Email</label>
+<input type="email" [(ngModel)]="email" placeholder="Enter Your Email"><br><br>
+<button (click)="submit()">Submit</button>
+<p>User Name: {{name}}</p>
+<p>Email: {{email}}</p>

@@ -1,0 +1,17 @@
+.banner{
+    background-color: white;
+}
+
+#feedback{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+    position: relative;
+    left: 20px;
+}
+
+a:hover{
+    text-decoration: underline;
+}

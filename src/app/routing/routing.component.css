@@ -1,0 +1,9 @@
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%;
+    background-color: yellow;
+    height: 30px;
+    align-items: center;
+    color: red;
+}

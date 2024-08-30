@@ -1,0 +1,11 @@
+            
+<button type="button" class="btn btn-outline-primary" [routerLink]='["heroes1"]'>Heroes1</button> 
+<!-- here if we give like this [routerLink]='["/heroes1"] it take the url in "localhost:4200/heroes1", here slash(/) indicates root address localhost:4200-->
+<!-- here if we give like this [routerLink]='["heroes1"] it take the url in "localhost:4200/manageheroes/heroes1" because we are in the manageheroes component,
+                             we came to this component by routing url="localhost:4200/manageheroes" due to no slash here it will append that path to the url-->
+
+<button (click)="heroes2()" type="button" class="btn btn-outline-primary">Heroes2</button>
+
+<router-outlet>
+
+</router-outlet>
